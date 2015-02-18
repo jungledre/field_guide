@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FieldGuide</title>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.13/angular.js"></script>
+  <script src="//cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-app="App">
+
+<div class="container" ng-controller="SiteCtrl">
+
+<%= yield %>
+
+</div>
+</body>
+</html>

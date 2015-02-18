@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: field_guide_development
+
+test:
+  <<: *default
+  database: field_guide_test
+
+production:
+  <<: *default
+  database: field_guide_production
+  username: field_guide
+  password: <%= ENV['FIELD_GUIDE_DATABASE_PASSWORD'] %>
