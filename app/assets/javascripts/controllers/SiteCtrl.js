@@ -4,7 +4,6 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
     defaults: {
       tileLayer: "http://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
       scrollWheelZoom: false,
-
       maxZoom: 15,
       path: {
         weight: 10,
@@ -15,7 +14,8 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
     center: {
       autoDiscover: true
     },
-    events: {}
+    events: {},
+    markers: {}
   })
 
   $scope.markers = new Array();
@@ -40,10 +40,13 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
 
 
 $scope.placeMarker = function(val) {
-  console.log($scope.location['location']['lat'], $scope.location['location']['lng'])
+
+  // console.log($scope.location['name'], $scope.location['location']['lat'], $scope.location['location']['lng'])
+
+  console.log($scope.selected)
   $scope.markers.push({
-          lat: $scope.location['location']['lat'],
-          lng: $scope.location['location']['lng'],
+          lat: $scope.selected['location']['lat'],
+          lng: $scope.selected['location']['lng'],
           focus: true,
           title: "Marker",
           draggable: true,
@@ -56,12 +59,9 @@ $scope.placeMarker = function(val) {
       });
 }
 
-
 $scope.show = function() {
   alert($scope.location['location']['lat'] + "," + $scope.location['location']['lng'])
 }
-
-
 
 $scope.getLocation = function(val) {
   return $http.get('/foursquare', {
