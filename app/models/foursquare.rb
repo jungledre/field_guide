@@ -11,7 +11,7 @@ class Foursquare
     params.merge!({
       client_id: ENV['FOURSQUARE_KEY'],
       client_secret: ENV['FOURSQUARE_SECRET'],
-      v: '20150128',
+      v: '20150214',
       m: 'foursquare'
     })
     uri = URI.parse("https://api.foursquare.com/v2/venues/search")
