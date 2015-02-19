@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userId: 
+  mapId: 
+  venue: MyString
+  title: MyString
+  desc: MyString
+  lat: MyString
+  lng: MyString
+  icon: MyString
+  category: MyString
+
+two:
+  userId: 
+  mapId: 
+  venue: MyString
+  title: MyString
+  desc: MyString
+  lat: MyString
+  lng: MyString
+  icon: MyString
+  category: MyString
