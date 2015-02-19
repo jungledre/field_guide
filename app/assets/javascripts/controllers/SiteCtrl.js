@@ -5,7 +5,6 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
         lat: 47.62337120374077,
         lng: -122.33027305730623,
         focus: true,
-        // https://ss3.4sqi.net/img/categories_v2/shops/technology_bg_32.png,
         title: "Marker",
         draggable: true,
         icon: {
@@ -101,8 +100,6 @@ $scope.placeMarker = function(val) {
       });
 
   $scope.selected = ""
-
-
 }
 
 $scope.getLocation = function(val) {
@@ -120,5 +117,26 @@ $scope.getLocation = function(val) {
     });
   });
 };
+
+$scope.saveMap = function(){
+  var saveMarkers = $scope.markers.map(function(el) {
+    return {
+      venue: el.label.message,
+      lat: el.lat,
+      lng: el.lng,
+      icon: el.icon.iconUrl,
+
+    };
+  });
+        $scope.alert=false;
+        $http.post('/marker',{point: saveMarkers}).success(function(data){
+            console.log("Posted yer shit")
+        }).error(function(err){
+            console.log(err);
+        })
+
+}
+
+
 
 }]);

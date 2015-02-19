@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   post "reset" => "passwords#create"
 
   get "foursquare" => "site#foursquare"
+
+  post "marker" => "marker#create"
+# get "/*" => 'site#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
