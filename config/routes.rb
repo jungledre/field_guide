@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "foursquare" => "site#foursquare"
 
+  get "marker" => "marker#get_markers"
   post "marker" => "marker#create"
 # get "/*" => 'site#index'
 

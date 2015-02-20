@@ -11,4 +11,10 @@ class MarkerController < ApplicationController
 
     render json: Point.all
   end
+
+  def get_markers
+    markers = Point.all.to_json
+
+    render json: Point.all
+  end
 end

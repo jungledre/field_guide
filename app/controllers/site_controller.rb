@@ -1,5 +1,9 @@
 class SiteController < ApplicationController
 
+  def index
+    markers = Point.all.to_json
+  end
+
   def foursquare
     location = params[:location] || "seattle,wa"
     query = params[:query] || "donuts"

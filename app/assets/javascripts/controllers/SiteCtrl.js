@@ -1,28 +1,7 @@
 app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
 
-  $scope.markers = [
-    {
-        lat: 47.62337120374077,
-        lng: -122.33027305730623,
-        focus: true,
-        title: "Marker",
-        draggable: true,
-        icon: {
-                    iconUrl: "https://ss3.4sqi.net/img/categories_v2/shops/technology_bg_32.png",
-                    iconSize:     [32, 32], // size of the icon
-                    shadowSize:   [50, 64], // size of the shadow
-                    iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
-                    shadowAnchor: [4, 62],  // the same for the shadow
-                    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-                },
-        label: {
-            message: "#!",
-            options: {
-                noHide: false
-            }
-        }
-    }
-  ];
+  $scope.markers = []
+
   angular.extend($scope, {
     defaults: {
       tileLayer: "http://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
@@ -35,7 +14,6 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
       }
     },
     events: {},
-
   })
 
     $scope.center = {
@@ -63,19 +41,11 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
   // });
 
 $scope.placeMarker = function(val) {
-
-  // console.log($scope.location['name'], $scope.location['location']['lat'], $scope.location['location']['lng'])
-
-  console.log($scope.selected)
-  console.log($scope.selected['categories'][0]['icon']['prefix'] + 'bg_32' + $scope.selected['categories'][0]['icon']['suffix'])
-
   $scope.center = {
     lat: $scope.selected['location']['lat'],
     lng: $scope.selected['location']['lng'],
     zoom: 13
   }
-
-  console.log($scope.center)
 
   $scope.markers.push({
           lat: $scope.selected['location']['lat'],
@@ -118,6 +88,24 @@ $scope.getLocation = function(val) {
   });
 };
 
+$scope.getMarkers = function() {
+  return $http.get('/marker')
+  .success(function(response){
+
+    for (var i = response.length - 1; i >= 0; i--) {
+      response[i].lat = parseFloat(response[i].lat)
+      response[i].lng = parseFloat(response[i].lng)
+    };
+
+    $scope.markers = response
+
+    console.log($scope.markers)
+
+    return $scope.markers
+
+    });
+}
+
 $scope.saveMap = function(){
   var saveMarkers = $scope.markers.map(function(el) {
     return {
@@ -128,15 +116,13 @@ $scope.saveMap = function(){
 
     };
   });
-        $scope.alert=false;
-        $http.post('/marker',{point: saveMarkers}).success(function(data){
-            console.log("Posted yer shit")
-        }).error(function(err){
-            console.log(err);
-        })
 
+  $scope.alert=false;
+  $http.post('/marker',{point: saveMarkers}).success(function(data){
+      console.log("Posted yer shit")
+  }).error(function(err){
+      console.log(err);
+  })
 }
-
-
 
 }]);
