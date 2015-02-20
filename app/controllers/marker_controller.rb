@@ -13,8 +13,9 @@ class MarkerController < ApplicationController
   end
 
   def get_markers
-    markers = Point.all.to_json
-
-    render json: Point.all
+    markers = Point.all.as_json
+    markers = markers.map {|x| x.merge({:icon => {iconUrl: x["icon"]},
+                                        :label => {message: x["venue"]}}) }
+    render json: markers
   end
 end

@@ -1,7 +1,5 @@
 app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
 
-  $scope.markers = []
-
   angular.extend($scope, {
     defaults: {
       tileLayer: "http://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
@@ -22,23 +20,6 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
       lng: -122.33027305730623,
       zoom: 13
     }
-  // $scope.$on("leafletDirectiveMap.click", function(event, args){
-  //     var leafEvent = args.leafletEvent;
-
-  //     $scope.markers.push({
-  //         lat: leafEvent.latlng.lat,
-  //         lng: leafEvent.latlng.lng,
-  //         focus: true,
-  //         title: "Marker",
-  //         draggable: true,
-  //         label: {
-  //             message: "Hey, drag me if you want",
-  //             options: {
-  //                 noHide: true
-  //             }
-  //         }
-  //     });
-  // });
 
 $scope.placeMarker = function(val) {
   $scope.center = {
@@ -125,4 +106,5 @@ $scope.saveMap = function(){
   })
 }
 
+$scope.getMarkers()
 }]);
