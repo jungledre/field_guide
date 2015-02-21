@@ -31,6 +31,14 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'angular-rails-templates'
+
+group :development do
+    gem 'letter_opener'
+end
+
+gem 'bootstrap_form'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -43,8 +51,3 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'leaflet-rails'
 # gem 'angular-leaflet-rails'
 
-group :development do
-    gem 'letter_opener'
-end
-
-gem 'bootstrap_form'

@@ -28,6 +28,10 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    angular-rails-templates (0.1.3)
+      railties (>= 3.1)
+      sprockets
+      tilt
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     bootstrap_form (2.2.0)
@@ -116,6 +120,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
   bcrypt (~> 3.1.7)
   bootstrap_form
   coffee-rails (~> 4.0.0)

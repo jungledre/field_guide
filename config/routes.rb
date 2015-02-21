@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "marker" => "marker#get_markers"
   post "marker" => "marker#create"
 # get "/*" => 'site#index'
+  get '*path' => 'site#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
