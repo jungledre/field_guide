@@ -27,4 +27,4 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
         templateUrl:'about.html',
         controller:'SiteCtrl'
     })
-}])
+}]);

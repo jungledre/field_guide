@@ -11,22 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219072519) do
+ActiveRecord::Schema.define(version: 20150221012835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "maps", force: true do |t|
-    t.integer  "userId"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "points", force: true do |t|
-    t.integer  "userId"
-    t.integer  "mapId"
+  create_table "markers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "map_id"
     t.string   "venue"
     t.string   "title"
     t.string   "desc"
