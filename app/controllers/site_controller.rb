@@ -1,7 +1,7 @@
 class SiteController < ApplicationController
 
   def index
-    markers = Point.all.to_json
+    markers = Marker.all.to_json
   end
 
   def foursquare

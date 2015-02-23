@@ -6,14 +6,14 @@ class MarkerController < ApplicationController
                  lng: p["lng"],
                  icon: p["icon"]
                }
-      Point.find_or_create_by(object)
+      Marker.find_or_create_by(object)
     end
 
-    render json: Point.all
+    render json: Marker.all
   end
 
   def get_markers
-    markers = Point.all.as_json
+    markers = Marker.all.as_json
     markers = markers.map {|x| x.merge({
       :icon => { iconUrl:      x["icon"],
                  iconSize:     [32, 32],
