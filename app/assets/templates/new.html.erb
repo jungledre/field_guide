@@ -1,5 +1,3 @@
-<div class="container">
-
 <h2>Foursquare Results</h2>
 
 <form class="form" ng-submit="placeMarker()">
@@ -19,7 +17,6 @@
 
 </div>
 
-<div class="container-fluid">
-  <leaflet defaults="defaults" center="center" markers="markers" event-broadcast="events" height="70vh" width="100%">
-  </leaflet>
+<div class="container-fluid leaflet-map">
+  <leaflet defaults="defaults" center="center" markers="markers" event-broadcast="events" height="70vh" width="100%"></leaflet>
 </div>
