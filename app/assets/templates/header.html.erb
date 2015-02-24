@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Bloggy {{1+0}}.0</a>
+      <a class="navbar-brand" href="/">Field Guide</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -10,6 +10,7 @@
       <ul class="nav navbar-nav">
         <li ng-class="{active:isActive('/about')}"><a href="/about">About</a></li>
         <li ng-class="{active:isActive('/map')}"><a href="/map">Browse</a></li>
+        <li ng-class="{active:isActive('/new')}"><a href="/new">New Map</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a ng-hide="currentUser" ng-click="showLogin()">Login</a></li>
@@ -18,7 +19,7 @@
 
       <form ng-submit="search()" class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Posts">
+          <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Maps">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>

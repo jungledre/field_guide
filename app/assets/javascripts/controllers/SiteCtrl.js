@@ -2,7 +2,7 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
 
   angular.extend($scope, {
     defaults: {
-      tileLayer: "http://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
+      tileLayer: "https://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
       scrollWheelZoom: false,
       maxZoom: 15,
       path: {
