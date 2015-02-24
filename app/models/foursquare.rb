@@ -1,3 +1,6 @@
+require "net/http"
+require "uri"
+
 class Foursquare
   def self.get_venues location, query
     params = {  near: location,

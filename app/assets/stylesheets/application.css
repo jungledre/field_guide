@@ -15,6 +15,14 @@
  *= require_self
  */
 
+body {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #565a5c;
+  background-color: !important #f5f5f5;
+}
+
 #desktopHeader {
   background: #0732a2;
   height: 60px;
@@ -56,6 +64,6 @@
   left: 646px;
   position: fixed;
   right: 0;
-  top: 60px;
+  top: 52px;
   z-index: 1;
 }
