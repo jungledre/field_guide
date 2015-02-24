@@ -52,7 +52,7 @@
 }
 
 .leaflet-map {
-  bottom: 0;
+  bottom: 0px;
   left: 646px;
   position: fixed;
   right: 0;
