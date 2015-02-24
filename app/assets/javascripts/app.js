@@ -1,9 +1,9 @@
 var app = angular.module('App', ['ui.bootstrap','leaflet-directive','templates','ngRoute']);
 
-app.config(function($httpProvider) {
+app.config(['$httpProvider',function($httpProvider) {
   $httpProvider.defaults.headers.common['X-CSRF-Token'] =
     $('meta[name=csrf-token]').attr('content');
-});
+}]);
 
 app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
     //no more #!
