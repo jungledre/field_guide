@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require app
+//= require leaflet
 //= require angular-rails-templates
 //= require_tree ./directives
 //= require_tree ./controllers
