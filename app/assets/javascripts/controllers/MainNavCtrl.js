@@ -1,5 +1,10 @@
-app.controller('MainNavCtrl',['$scope','$location','$modal', function($scope,$location,$modal){
-  $scope.navCollapsed = true
+app.controller('MainNavCtrl',['$scope','$location','$modal','UserService', function($scope,$location,$modal,UserService){
+
+  $scope.UserService = UserService
+
+  $scope.$watchCollection('UserService',function(){
+    $scope.currentUser = UserService.currentUser;
+  })
 
   $scope.isActive = function(url){
     return url == $location.path();
@@ -11,22 +16,22 @@ app.controller('MainNavCtrl',['$scope','$location','$modal', function($scope,$lo
   //   // $scope.searchTerm = ''
   // }
 
-  // $scope.showLogin = function(){
-  //   $modal.open({
-  //     templateUrl:'/views/authModal.html',
-  //     controller:'AuthModalCtrl'
-  //   })
-  // }
+  $scope.showLogin = function(){
+    $modal.open({
+      templateUrl:'authModal.html',
+      controller:'AuthModalCtrl'
+    })
+  }
 
-  // $scope.logout = function(){
-  //   UserService.logout(function(err,data){
-  //   })
-  // }
+  $scope.logout = function(){
+    UserService.logout(function(err,data){
+    })
+  }
 
-  // $scope.showSignup = function(){
-  //   $modal.open({
-  //     templateUrl:'/view/authModal.html',
-  //     controller:'AuthModalCtrl'
-  //   })
-  // }
+  $scope.showSignup = function(){
+    $modal.open({
+      templateUrl:'authModal.html',
+      controller:'AuthModalCtrl'
+    })
+  }
 }])

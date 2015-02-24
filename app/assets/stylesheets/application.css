@@ -109,3 +109,7 @@ a, a:hover a:focus{
   color: #C8DF9F;
 }
 
+.modal-content {
+  top: 40px;
+}
+

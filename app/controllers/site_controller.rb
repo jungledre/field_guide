@@ -12,4 +12,13 @@ class SiteController < ApplicationController
 
     render :json => results
   end
+
+  def foursquare_info
+    puts params
+    venue_id = params || "40a55d80f964a52020f31ee3"
+
+    results = Foursquare.get_info venue_id
+
+    render :json => results
+  end
 end

@@ -1,4 +1,10 @@
-app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
+
+  $scope.posts = [];
+  $scope.UserService = UserService
+  $scope.$watchCollection('UserService',function(){
+      $scope.currentUser = UserService.currentUser;
+  })
 
   angular.extend($scope, {
     defaults: {
@@ -51,17 +57,26 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
     $scope.selected = ""
   }
 
-  $scope.getLocation = function(val) {
+  $scope.getLocation = function(location, query) {
     return $http.get('/foursquare', {
       params: {
-        location: "seattle,wa",
-        query: val,
+        location: location,
+        query: query,
       }
-    }).then(function(response){
+    })
+    .then(function(response){
       return response.data.map(function(item){
         $scope.location = item
         return $scope.location;
       });
+    });
+  };
+
+  $scope.getVenueInfo = function(venue_id) {
+    return $http.get('/foursquare_info', venue_id)
+    .then(function(response){
+      $scope.venue_info = response;
+      return $scope.venue_info
     });
   };
 
@@ -93,6 +108,6 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
         console.log(err);
     })
   }
-
+// $scope.getVenueInfo()
 $scope.getMarkers()
 }]);

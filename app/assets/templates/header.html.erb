@@ -14,15 +14,15 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a ng-hide="currentUser" ng-click="showLogin()">Login</a></li>
-        <li><a href="" ng-show="currentUser" ng-click="logout()">Logout</a></li>
         <li><a ng-hide="currentUser" ng-click="showSignup()">Signup</a></li>
+        <li><a href="" ng-show="currentUser" ng-click="logout()">Logout</a></li>
 
-      <form ng-submit="search()" class="navbar-form navbar-left" role="search">
+<!--       <form ng-submit="search()" class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search Maps">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

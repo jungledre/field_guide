@@ -28,3 +28,9 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
         controller:'SiteCtrl'
     })
 }]);
+
+app.run(['UserService', function(UserService){
+    UserService.check(function(err,data){
+        console.log("check",err,data)
+    })
+}])
