@@ -24,6 +24,31 @@ body {
   background-color: !important #f5f5f5;
 }
 
+a, a:hover a:focus {
+  color: #C8DF9F;
+}
+
+.map-list {
+  list-style:none;
+}
+
+.map-list li small{
+  color: #C4C3BC;
+}
+
+.btn {
+  color: #565a5c;
+  display: inline-block;
+  margin-bottom: 0;
+  border-radius: 2px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline;
+
+}
 #desktopHeader {
   background: #0732a2;
   height: 60px;
@@ -77,20 +102,6 @@ body {
   z-index: 1;
 }
 
-.btn {
-  color: #565a5c;
-  display: inline-block;
-  margin-bottom: 0;
-  border-radius: 2px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: bold;
-  white-space: nowrap;
-  cursor: pointer;
-  display: inline;
-
-}
-
 .navbar {
   z-index: 100000;
 }
@@ -104,10 +115,6 @@ body {
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
   background-color: #C8DF9F;
-}
-
-a, a:hover a:focus{
-  color: #C8DF9F;
 }
 
 .modal-content {

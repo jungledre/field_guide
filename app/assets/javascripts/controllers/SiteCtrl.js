@@ -1,6 +1,5 @@
 app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
 
-  $scope.posts = [];
   $scope.UserService = UserService
   $scope.$watchCollection('UserService',function(){
       $scope.currentUser = UserService.currentUser;
