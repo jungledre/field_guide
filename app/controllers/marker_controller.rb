@@ -23,7 +23,7 @@ class MarkerController < ApplicationController
                  popupAnchor:  [-3, -76]},
       :label => { message: x["venue"],
                   options: {
-                    noHide: true
+                    noHide: false
                   }
                 }
     }) }

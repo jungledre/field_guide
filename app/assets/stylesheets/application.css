@@ -16,9 +16,10 @@
  */
 
 body {
-  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 1.43;
+  font-family: 'lineto-akkurat', Arial, sans-serif;
+  font-variant: normal;
+  font-size: 16px;
+  font-weight: 300;
   color: #565a5c;
   background-color: !important #f5f5f5;
 }
@@ -36,18 +37,25 @@ body {
 #splash {
   z-index: 2;
   position: relative; /* or absolute */
-  background: white;
+  background: rgba(258,258,258,.8);
   box-shadow: 0px 0px 20px rgba(0,0,0,.2);
   position: fixed;
-  top: 40%;
+  top: 30%;
   margin-top: -50px;
   text-align: center;
   border-radius: 5px;
+  letter-spacing: 2px;
+  padding: 20px;
 }
 
 #splash-map {
   position: absolute;
   top: 0px;
+}
+
+#splash-header {
+  font-size: 60px;
+  font-weight: 900;
 }
 
 .leaflet-top {
@@ -67,3 +75,37 @@ body {
   top: 52px;
   z-index: 1;
 }
+
+.btn {
+  color: #565a5c;
+  display: inline-block;
+  margin-bottom: 0;
+  border-radius: 2px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline;
+
+}
+
+.navbar {
+  z-index: 100000;
+}
+
+.navbar-default a {
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: #C8DF9F;
+}
+
+a, a:hover a:focus{
+  color: #C8DF9F;
+}
+

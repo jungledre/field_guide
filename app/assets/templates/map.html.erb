@@ -5,8 +5,16 @@
     <h2>Existing Map</h2>
   </div>
 
+  <div ng-repeat="marker in markers">
+    <li>{{marker.venue}}</li>
+  </div>
+
   <div class="container-fluid leaflet-map">
     <leaflet defaults="defaults" center="center" markers="markers" event-broadcast="events" height="100vh" width="100%"></leaflet>
   </div>
+
+
+
+  <div
 </div>
 

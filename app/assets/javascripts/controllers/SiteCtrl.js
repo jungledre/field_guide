@@ -44,7 +44,7 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
       label: {
         message: $scope.selected.name,
         options: {
-          noHide: true
+          noHide: false
         }
       }
     });
@@ -88,7 +88,7 @@ app.controller('SiteCtrl', ['$scope', '$http', function($scope, $http){
     });
     $scope.alert=false;
     $http.post('/marker',{point: saveMarkers}).success(function(data){
-        console.log("Posted yer shit")
+        console.log("saved to database")
     }).error(function(err){
         console.log(err);
     })

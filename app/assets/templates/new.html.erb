@@ -1,16 +1,17 @@
 <header></header>
 
 <div class="container col-md-5">
-  <h2>Foursquare Results</h2>
+  <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map"></input>
+  <h2>New Map</h2>
   <form class="form" ng-submit="placeMarker()">
     <div class="form-group">
+
       <input type="text" ng-model="selected" placeholder="Please enter a location" typeahead="address as address['name'] + ' — ' + address['location']['formattedAddress'] for address in getLocation($viewValue)" typeahead-loading="loadingLocations" typeahead-min-length="3" class="form-control">
     </div>
     <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
     <input ng-hide="loadingLocations" type="submit" class="btn btn-default" name="Search"></input>
   </form>
 
-  <input type="submit" ng-click="saveMap()" class="btn btn-default" value="Save Map"></input>
 
   <br><br>
 </div>
