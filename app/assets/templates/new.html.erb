@@ -12,7 +12,10 @@
     <input ng-hide="loadingLocations" type="submit" class="btn btn-default" name="Search"></input>
   </form>
 
-  <br><br>
+  <div ng-repeat="marker in markers">
+    <li>{{marker.venue}}</li>
+  </div>
+
 </div>
 
 <div class="container-fluid leaflet-map">

@@ -57,10 +57,10 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
     $scope.selected = ""
   }
 
-  $scope.getLocation = function(location, query) {
+  $scope.getLocation = function(query) {
     return $http.get('/foursquare', {
       params: {
-        location: location,
+        location: "seattle,wa",
         query: query,
       }
     })
