@@ -71,10 +71,15 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
     });
   };
 
-  $scope.getVenueInfo = function(venue_id) {
-    return $http.get('/foursquare_info', venue_id)
+  $scope.getVenueInfo = function(query) {
+    return $http.get('/foursquare_info', {
+      params: {
+        id: query
+      }
+    })
     .then(function(response){
-      $scope.venue_info = response;
+      console.log(response)
+      $scope.venue_info = response
       return $scope.venue_info
     });
   };
@@ -107,6 +112,6 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
         console.log(err);
     })
   }
-// $scope.getVenueInfo()
+$scope.getVenueInfo()
 $scope.getMarkers()
 }]);

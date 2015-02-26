@@ -1,10 +1,11 @@
 <header></header>
-<br><br><br><br>
 
+<br><br><br>
 
-<div class="container col-md-5">
-  <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map"></input>
-  <h2>New Map</h2>
+<div class="container">
+<div class="container col-md-7 col-sm-7 col-xs-12">
+  <h2>New Map   <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map"></input>
+</h2>
   <form class="form" ng-submit="placeMarker()">
     <div class="form-group">
       <input type="text" ng-model="selected" placeholder="Please enter a location" typeahead="address as address['name'] + ' — ' + address['location']['formattedAddress'] for address in getLocation($viewValue) | limitTo:10" typeahead-loading="loadingLocations" typeahead-min-length="3" class="form-control">
@@ -21,6 +22,7 @@
 
 </div>
 
-<div class="container-fluid leaflet-map">
+<div class="container-fluid col-md-5 col-sm-6 leaflet-map">
   <leaflet defaults="defaults" center="center" markers="markers" event-broadcast="events" height="100vh" width="100%"></leaflet>
+</div>
 </div>
