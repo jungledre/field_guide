@@ -6,10 +6,9 @@ app.config(['$httpProvider',function($httpProvider) {
 }]);
 
 app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
-    //no more #!
+
     $locationProvider.html5Mode(true);
 
-    //define routes
     $routeProvider
     .when('/',{
         templateUrl:'index.html',
@@ -31,6 +30,6 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 
 app.run(['UserService', function(UserService){
     UserService.check(function(err,data){
-        console.log("check",err,data)
+        // console.log("check",err,data)
     })
 }])

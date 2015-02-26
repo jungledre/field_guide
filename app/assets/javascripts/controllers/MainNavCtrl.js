@@ -1,5 +1,6 @@
 app.controller('MainNavCtrl',['$scope','$location','$modal','UserService', function($scope,$location,$modal,UserService){
 
+  $scope.navCollapsed = true
   $scope.UserService = UserService
 
   $scope.$watchCollection('UserService',function(){
