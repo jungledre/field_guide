@@ -9,14 +9,19 @@
     <div class="media col-md-6 col-sm-6 col-xs-12" ng-repeat="marker in markers">
       <div class="media-top">
         <a href="#">
-          <img class="media-object" src="http://lorempixel.com/300/200/city/" width="100%">
-          <div class="category-icon-overlay">
-            <span><img src="{{marker.icon.iconUrl}}"></span>
+          <div class="map-list-photos container-fluid col-md-12">
+            <div class="map-list-anchor" ng-repeat="photo in photo_array">
+              <img class="media-object col-md-4" src="{{photo}}" width="100%">
+            </div>
           </div>
+<!--           <div class="category-icon-overlay">
+            <span><img src="{{marker.icon.iconUrl}}"></span>
+          </div> -->
         </a>
       </div>
       <div class="media-body">
-        <h4 class="media-heading">{{marker.venue}}</h4>
+        <h4 class="media-heading"><strong>{{marker.venue}}</strong></h4>
+photos {{photos}} photos
         <p>"Guba simpy bebo, zecco plazes moola gpokr."</p>
       </div>
     </div>

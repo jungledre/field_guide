@@ -19,16 +19,13 @@ class Foursquare
     })
     uri = URI.parse("https://api.foursquare.com/v2/venues/search")
     uri.query = URI.encode_www_form(params)
-    # puts uri.query
     res = Net::HTTP.get_response(uri).body
     results = JSON.parse(res)
   end
 
   def self.get_venue_info venue_id
-    # params = { VENUE_ID: venue_id}
     response = self.query_venue(venue_id)
-    render json: response
-    response['response']
+    response['response']['venue']
   end
 
   def self.query_venue venue_id
@@ -36,12 +33,10 @@ class Foursquare
       client_id: ENV['FOURSQUARE_KEY'],
       client_secret: ENV['FOURSQUARE_SECRET'],
       v: '20150214',
-      # m: 'foursquare'
+      m: 'foursquare'
     }
-    uri = URI.parse("https://api.foursquare.com/v2/venues/#{venue_id}")
+    uri = URI.parse("https://api.foursquare.com/v2/venues/#{venue_id.first.second}")
     uri.query = URI.encode_www_form(params)
-    puts "URI QUERY: "
-    puts uri.query
     res = Net::HTTP.get_response(uri).body
     results = JSON.parse(res)
   end

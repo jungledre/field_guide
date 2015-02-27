@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "reset" => "passwords#create"
 
   get "foursquare" => "site#foursquare"
+  get "foursquare_info" => "site#foursquare_info"
 
   get "marker" => "marker#get_markers"
   post "marker" => "marker#create"

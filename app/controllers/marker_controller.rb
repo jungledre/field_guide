@@ -26,7 +26,7 @@ class MarkerController < ApplicationController
                     noHide: false
                   }
                 }
-    }) }
+    })}
     render json: markers
   end
 end

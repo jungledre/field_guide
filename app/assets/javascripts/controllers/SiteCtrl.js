@@ -74,13 +74,23 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
   $scope.getVenueInfo = function(query) {
     return $http.get('/foursquare_info', {
       params: {
-        id: query
+        venue_id: "504b8d90e4b08a5d467d2dbc"
       }
     })
     .then(function(response){
-      console.log(response)
-      $scope.venue_info = response
-      return $scope.venue_info
+      console.log(response.data)
+      $scope.venue_info = response.data
+      $scope.best_photo = response.data.bestPhoto.prefix + '300' + response.data.bestPhoto.suffix
+      photo_response = response.data.photos.groups['0'].items
+      photo_array = []
+      for (var i = 0; i <= 5; i++) {
+        photo_array.push(photo_response[i].prefix + '500' + photo_response[i].suffix)
+      };
+
+
+      $scope.photo_array = photo_array
+      console.log(photo_array)
+      return $scope.venue_info;
     });
   };
 

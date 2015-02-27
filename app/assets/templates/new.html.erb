@@ -2,24 +2,32 @@
 
 <br><br><br>
 
-<div class="container">
-<div class="container col-md-7 col-sm-7 col-xs-12">
-  <h2>New Map   <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map"></input>
-</h2>
-  <form class="form" ng-submit="placeMarker()">
-    <div class="form-group">
-      <input type="text" ng-model="selected" placeholder="Please enter a location" typeahead="address as address['name'] + ' — ' + address['location']['formattedAddress'] for address in getLocation($viewValue) | limitTo:10" typeahead-loading="loadingLocations" typeahead-min-length="3" class="form-control">
-    </div>
-    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-    <input ng-hide="loadingLocations" type="submit" class="btn btn-default" name="Search"></input>
-  </form>
-<br>
-<div>
-  <ul class="map-list" ng-repeat="marker in markers">
-    <li><img src="{{marker.icon.iconUrl}}">&nbsp;&nbsp;{{marker.venue}}</li>
-  </ul>
-</div>
+<div class="container-fluid">
+  <div class="container col-md-7 col-sm-7 col-xs-12">
+    <h2>New Map
+      <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map"></input>
+    </h2>
+    <form class="form" ng-submit="placeMarker()">
+      <div class="form-group input-group">
+        <input type="text" ng-model="selected" placeholder="Please enter a location" typeahead="address as address['name'] + ' — ' + address['location']['formattedAddress'] for address in getLocation($viewValue) | filter:$viewValue | limitTo:8" typeahead-loading="loadingLocations" typeahead-min-length="3" class="form-control">
+        <span class="input-group-btn">
+          <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+ <!--          <input ng-hide="loadingLocations" type="submit" name="Search">Hi</input>
+ -->
+          <span class="input-group-btn">
+            <button ng-hide="loadingLocations" class="btn btn-default" type="button">Go!</button>
+          </span>
 
+        </span>
+      </div>
+    </form>
+  </div>
+  <br><br>
+  <div>
+    <ul class="map-list" ng-repeat="marker in markers">
+      <li><img src="{{marker.icon.iconUrl}}">&nbsp;&nbsp;{{marker.venue}}</li>
+    </ul>
+  </div>
 </div>
 
 <div class="container-fluid col-md-5 col-sm-6 leaflet-map">
