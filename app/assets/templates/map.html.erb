@@ -10,7 +10,7 @@
     <div class="media col-md-6 col-sm-6 col-xs-12" ng-repeat="marker in markers">
       <div class="media-top">
         <a href="#">
-          <div class="map-list-photos container-fluid col-md-12">
+          <div class="map-list-photos container-fluid col-md-12" data-ng-init="getVenueInfo(marker.venue_id)">
             <div class="map-list-anchor" ng-repeat="photo in photo_array">
               <img class="media-object col-md-4" src="{{photo}}" width="100%">
             </div>

@@ -14,13 +14,17 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
         templateUrl:'index.html',
         controller:'SiteCtrl'
     })
-    .when('/new',{
+    .when('/map/new',{
         templateUrl:'new.html',
+        controller:'MapNewCtrl'
+    })
+    .when('/map/browse',{
+        templateUrl:'browse.html',
         controller:'SiteCtrl'
     })
-    .when('/map',{
+    .when('/map/:id',{
         templateUrl:'map.html',
-        controller:'SiteCtrl'
+        controller:'MapShowCtrl'
     })
     .when('/about',{
         templateUrl:'about.html',
