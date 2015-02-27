@@ -78,7 +78,6 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
       }
     })
     .then(function(response){
-      console.log(response.data)
       $scope.venue_info = response.data
       $scope.best_photo = response.data.bestPhoto.prefix + '300' + response.data.bestPhoto.suffix
       photo_response = response.data.photos.groups['0'].items
@@ -87,9 +86,7 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
         photo_array.push(photo_response[i].prefix + '500' + photo_response[i].suffix)
       };
 
-
       $scope.photo_array = photo_array
-      console.log(photo_array)
       return $scope.venue_info;
     });
   };

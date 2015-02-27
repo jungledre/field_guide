@@ -11,13 +11,10 @@
       <div class="form-group input-group">
         <input type="text" ng-model="selected" placeholder="Please enter a location" typeahead="address as address['name'] + ' — ' + address['location']['formattedAddress'] for address in getLocation($viewValue) | filter:$viewValue | limitTo:8" typeahead-loading="loadingLocations" typeahead-min-length="3" class="form-control">
         <span class="input-group-btn">
-          <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
- <!--          <input ng-hide="loadingLocations" type="submit" name="Search">Hi</input>
- -->
-          <span class="input-group-btn">
-            <button ng-hide="loadingLocations" class="btn btn-default" type="button">Go!</button>
-          </span>
-
+          <button class="btn btn-default" type="submit">
+            <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+            <span ng-hide="loadingLocations">  Go!</span>
+          </button>
         </span>
       </div>
     </form>
