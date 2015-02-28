@@ -9,16 +9,14 @@
   <br>
     <div class="media col-md-6 col-sm-6 col-xs-12" ng-repeat="marker in markers">
       <div class="media-top">
-        <a href="#">
-          <div class="map-list-photos container-fluid col-md-12" data-ng-init="getVenueInfo(marker.venue_id)">
-            <div class="map-list-anchor" ng-repeat="photo in photo_array">
-              <img class="media-object col-md-4" src="{{photo}}" width="100%">
-            </div>
+        <div class="map-list-photos container-fluid col-md-12" data-ng-init="getVenueInfo(marker.venue_id, marker)">
+          <div ng-repeat="photo in marker.photoArray">
+            <img class="media-object col-md-4" src="{{photo}}" width="100%">
           </div>
-<!--           <div class="category-icon-overlay">
-            <span><img src="{{marker.icon.iconUrl}}"></span>
-          </div> -->
-        </a>
+        </div>
+        <div class="category-icon-overlay">
+          <span><img src="{{marker.icon.iconUrl}}"></span>
+        </div>
       </div>
       <div class="media-body">
         <h4 class="media-heading"><strong>{{marker.venue}}</strong></h4>

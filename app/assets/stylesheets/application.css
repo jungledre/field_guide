@@ -38,15 +38,9 @@ li {
   list-style: none;
 }
 
-
-.media-top {
-  position: relative;
-}
-
 .category-icon-overlay {
   position: absolute;
-  bottom: 30px;
-  left: 0;
+  bottom: 130px;
   padding: 7px 10px 7px 20px;
   background-color: rgba(250,250,250,0.9);
   border-radius: 0 2px 2px 0;
@@ -63,7 +57,10 @@ li {
   white-space: nowrap;
   cursor: pointer;
   display: inline;
+}
 
+.map-list-photos {
+  min-height: 200px;
 }
 
 .map-list-photos img {

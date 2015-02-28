@@ -1,3 +1,4 @@
+"use strict";
 app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
 
   $scope.UserService = UserService
@@ -26,22 +27,26 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertServi
     zoom: 13
   }
 
-  $scope.getVenueInfo = function(query) {
+  $scope.getVenueInfo = function(query, marker) {
+    if (!marker) {
+      debugger;
+    }
+
     return $http.get('/foursquare_info', {
       params: {
         venue_id: query
       }
     })
     .then(function(response){
-      $scope.venue_info = response.data
-      photo_response = response.data.photos.groups['0'].items
-      photo_array = []
+      var venueInfo = response.data;
+      var photo_response = venueInfo.photos.groups['0'].items;
+      var photo_array = [];
       for (var i = 0; i <= 5; i++) {
-        photo_array.push(photo_response[i].prefix + '500' + photo_response[i].suffix)
-      };
+        photo_array.push(photo_response[i].prefix + '300' + photo_response[i].suffix);
+      }
 
-      $scope.photo_array = photo_array
-      return $scope.venue_info;
+      marker.photoArray = photo_array;
+      return venueInfo;
     });
   };
 
