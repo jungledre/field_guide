@@ -22,8 +22,6 @@ app.controller('AuthModalCtrl', ['$scope','$modalInstance','UserService', functi
     var signupData = {
       email: $scope.signupEmail,
       password: $scope.signupPassword
-      // firstName:$scope.signupFirstName,
-      // lastName:$scope.signupLastName
     }
     console.log(signupData)
     // UserService.signup($scope.email,$scope.password,

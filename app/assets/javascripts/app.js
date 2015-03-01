@@ -20,7 +20,7 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
     })
     .when('/map/browse',{
         templateUrl:'browse.html',
-        controller:'SiteCtrl'
+        controller:'MapIndexCtrl'
     })
     .when('/map/:id',{
         templateUrl:'map.html',

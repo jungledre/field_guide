@@ -1,5 +1,4 @@
-"use strict";
-app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
+app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routeParams','AlertService','UserService', function($scope,$http,$modal,$location,$routeParams,AlertService,UserService){
 
   $scope.UserService = UserService
   $scope.$watchCollection('UserService',function(){
@@ -27,6 +26,21 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertServi
     zoom: 13
   }
 
+  $scope.getMarkers = function() {
+    var mapId = $routeParams.id
+
+    return $http.get('/map/' + mapId)
+    .success(function(response){
+      console.log("inside")
+      for (var i = response.length - 1; i >= 0; i--) {
+        response[i].lat = parseFloat(response[i].lat)
+        response[i].lng = parseFloat(response[i].lng)
+      };
+      $scope.markers = response
+      return $scope.markers
+    });
+  };
+
   $scope.getVenueInfo = function(query, marker) {
     if (!marker) {
       debugger;
@@ -49,18 +63,6 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertServi
       return venueInfo;
     });
   };
-
-  $scope.getMarkers = function() {
-    return $http.get('/marker')
-    .success(function(response){
-      for (var i = response.length - 1; i >= 0; i--) {
-        response[i].lat = parseFloat(response[i].lat)
-        response[i].lng = parseFloat(response[i].lng)
-      };
-      $scope.markers = response
-      return $scope.markers
-    });
-  }
 
 $scope.getMarkers()
 }]);

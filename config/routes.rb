@@ -1,25 +1,27 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # See how all your routes lay out with 'rake routes'.
 
   # You can have the root of your site routed with "root"
   root 'site#index'
 
-  get "login" => "sessions#new"
-  post "login" => "sessions#create"
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
 
-  get "logout" => "sessions#destroy"
-  post "logout" => "sessions#destroy"
+  get 'logout' => 'sessions#destroy'
+  post 'logout' => 'sessions#destroy'
 
-  get "reset" => "passwords#new"
-  post "reset" => "passwords#create"
+  get 'reset' => 'passwords#new'
+  post 'reset' => 'passwords#create'
 
-  get "foursquare" => "site#foursquare"
-  get "foursquare_info" => "site#foursquare_info"
+  get 'foursquare' => 'site#foursquare'
+  get 'foursquare_info' => 'site#foursquare_info'
 
-  get "marker" => "marker#get_markers"
-  post "marker" => "marker#create"
-# get "/*" => 'site#index'
+  get 'marker' => 'marker#get_markers'
+  post 'marker' => 'marker#create'
+
+  get 'maps' => 'map#index'
+# get '/*' => 'site#index'
   get '*path' => 'site#index'
 
   # Example of regular route:
