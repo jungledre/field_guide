@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get 'marker' => 'marker#get_markers'
   post 'marker' => 'marker#create'
 
-  get 'maps' => 'map#index'
+  get 'get_maps' => 'map#index'
+  get 'show_map/:id' => 'map#show'
 # get '/*' => 'site#index'
   get '*path' => 'site#index'
 

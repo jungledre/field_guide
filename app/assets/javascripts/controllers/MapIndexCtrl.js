@@ -1,4 +1,5 @@
-app.controller('MapIndexCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
+app.controller('MapIndexCtrl', ['$scope','$http','$modal','$location','AlertService','UserService',
+  function($scope,$http,$modal,$location,AlertService,UserService){
 
   $scope.UserService = UserService
   $scope.$watchCollection('UserService',function(){
@@ -27,10 +28,9 @@ app.controller('MapIndexCtrl', ['$scope','$http','$modal','$location','AlertServ
   }
 
   $scope.getMaps = function() {
-    return $http.get('/map/index')
+    return $http.get('/get_maps')
     .success(function(response){
       $scope.maps = response
-      console.log($scope.maps)
     });
   }
 

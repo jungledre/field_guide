@@ -1,4 +1,7 @@
-app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routeParams','AlertService','UserService', function($scope,$http,$modal,$location,$routeParams,AlertService,UserService){
+app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routeParams','AlertService','UserService',
+  function($scope,$http,$modal,$location,$routeParams,AlertService,UserService){
+
+  var mapId = $routeParams.id
 
   $scope.UserService = UserService
   $scope.$watchCollection('UserService',function(){
@@ -27,9 +30,8 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routePara
   }
 
   $scope.getMarkers = function() {
-    var mapId = $routeParams.id
-
-    return $http.get('/map/' + mapId)
+    console.log("hi")
+    $http.get('/show_map/' + mapId)
     .success(function(response){
       console.log("inside")
       for (var i = response.length - 1; i >= 0; i--) {
