@@ -59,6 +59,10 @@ li {
   display: inline;
 }
 
+.form-control {
+  border-radius: 2px;
+}
+
 .map-list-photos {
   min-height: 200px;
 }

@@ -1,9 +1,12 @@
-app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
+app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertService','UserService',
+  function($scope,$http,$modal,$location,AlertService,UserService){
 
-  $scope.UserService = UserService
-  $scope.$watchCollection('UserService',function(){
-      $scope.currentUser = UserService.currentUser;
-  })
+  // $scope.UserService = UserService
+  // $scope.$watchCollection('UserService',function(){
+  //     $scope.currentUser = UserService.currentUser;
+  // })
+
+  $scope.markers = []
 
   angular.extend($scope, {
     defaults: {
@@ -51,11 +54,13 @@ app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertServic
       lat: $scope.selected['location']['lat'],
       lng: $scope.selected['location']['lng'],
       venue_id: $scope.selected['id'],
+      category: $scope.selected['categories'][0]['id'],
       focus: true,
       title: "Marker",
       // draggable: true,
       icon: {
-        iconUrl:      $scope.selected['categories'][0]['icon']['prefix'] + 'bg_32' + $scope.selected['categories'][0]['icon']['suffix'],
+        iconUrl:      $scope.selected['categories'][0]['icon']['prefix'] + 'bg_32'
+                      + $scope.selected['categories'][0]['icon']['suffix'],
         iconSize:     [32, 32], // size of the icon
         shadowSize:   [50, 64], // size of the shadow
         iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
@@ -72,22 +77,11 @@ app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertServic
     $scope.selected = ""
   };
 
-  $scope.getMarkers = function() {
-    return $http.get('/marker')
-    .success(function(response){
-      for (var i = response.length - 1; i >= 0; i--) {
-        response[i].lat = parseFloat(response[i].lat)
-        response[i].lng = parseFloat(response[i].lng)
-      };
-      $scope.markers = response
-      return $scope.markers
-    });
-  }
-
-
-    $scope.saveMap = function(){
+  $scope.saveMap = function(){
+    console.log($scope.markers)
     var saveMarkers = $scope.markers.map(function(el) {
       return {
+        category: el.category,
         venue: el.label.message,
         venue_id: el.venue_id,
         lat: el.lat,
@@ -95,14 +89,13 @@ app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertServic
         icon: el.icon.iconUrl
       };
     });
-
     $scope.alert=false;
     $http.post('/marker',{marker: saveMarkers}).success(function(data){
-        console.log(saveMarkers)
+        AlertService.add('success', 'Your field guide has been saved.')
+        alert("The field guide has been saved.")
     }).error(function(err){
         console.log(err);
     })
   };
-$scope.getMarkers()
 
 }]);

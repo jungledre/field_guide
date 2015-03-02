@@ -1,12 +1,12 @@
 <header></header>
-
 <br><br><br>
-<div ng-controller="MapNewCtrl">
-  <div class="container-fluid">
 
-    <div class="container col-md-7 col-sm-7 col-xs-12">
+<div ng-controller="MapNewCtrl">
+  <div class="container col-md-7 col-sm-7 col-xs-12">
+
+    <div class="container col-md-12 col-sm-12 col-xs-12">
       <h2>New Map
-        <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map"></input>
+        <input type="submit" ng-click="saveMap()" class="btn btn-default pull-right" value="Save Map">
       </h2>
       <form class="form" ng-submit="placeMarker()">
         <div class="form-group input-group">
@@ -19,19 +19,19 @@
           </span>
         </div>
       </form>
+
+      <br><br>
+
+      <div>
+        <ul class="map-list" ng-repeat="marker in markers">
+          <li><img src="{{marker.icon.iconUrl}}">&nbsp;&nbsp;{{marker.label.message}}</li>
+        </ul>
+      </div>
+
     </div>
 
-    <br><br>
-    <div>
-      <ul class="map-list" ng-repeat="marker in markers">
-        <li><img src="{{marker.icon.iconUrl}}">&nbsp;&nbsp;{{marker.label.message}}</li>
-      </ul>
+    <div class="container-fluid col-md-5 col-sm-6 leaflet-map">
+      <leaflet defaults="defaults" center="center" markers="markers" event-broadcast="events" height="100vh" width="100%"></leaflet>
     </div>
-
   </div>
-
-  <div class="container-fluid col-md-5 col-sm-6 leaflet-map">
-    <leaflet defaults="defaults" center="center" markers="markers" event-broadcast="events" height="100vh" width="100%"></leaflet>
-  </div>
-
 </div>

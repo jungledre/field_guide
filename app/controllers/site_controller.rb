@@ -1,7 +1,8 @@
 class SiteController < ApplicationController
 
   def index
-    markers = Marker.all.to_json
+    puts "site:index"
+    # markers = Marker.all.to_json
   end
 
   def foursquare

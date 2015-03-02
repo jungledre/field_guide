@@ -1,9 +1,18 @@
-"use strict";
-app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
+app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routeParams','AlertService','UserService',
+  function($scope,$http,$modal,$location,$routeParams,AlertService,UserService){
+
+  var mapId = $routeParams.id;
 
   $scope.UserService = UserService
   $scope.$watchCollection('UserService',function(){
       $scope.currentUser = UserService.currentUser;
+  })
+
+  $http.get('/show_map/'+mapId).success(function(data){
+      $scope.markers = data;
+  }).error(function(err){
+      $location.path('/');
+      alert('that map could not be found.');
   })
 
   angular.extend($scope, {
@@ -27,6 +36,18 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertServi
     zoom: 13
   }
 
+  $scope.getMarkers = function() {
+    $http.get('/show_map/' + mapId)
+    .success(function(response){
+      for (var i = response.length - 1; i >= 0; i--) {
+        response[i].lat = parseFloat(response[i].lat)
+        response[i].lng = parseFloat(response[i].lng)
+      };
+      $scope.markers = response
+      return $scope.markers
+    });
+  };
+
   $scope.getVenueInfo = function(query, marker) {
     if (!marker) {
       debugger;
@@ -49,18 +70,6 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','AlertServi
       return venueInfo;
     });
   };
-
-  $scope.getMarkers = function() {
-    return $http.get('/marker')
-    .success(function(response){
-      for (var i = response.length - 1; i >= 0; i--) {
-        response[i].lat = parseFloat(response[i].lat)
-        response[i].lng = parseFloat(response[i].lng)
-      };
-      $scope.markers = response
-      return $scope.markers
-    });
-  }
 
 $scope.getMarkers()
 }]);
