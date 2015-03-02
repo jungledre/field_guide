@@ -18,13 +18,15 @@
         </div>
 
         <div class="category-icon-overlay">
-          <span><img ng-src="{{marker.icon.iconUrl}}"></span>
+          <span>
+          <img ng-src="{{marker.icon.iconUrl}}">
+          </span>
         </div>
 
       </div>
       <div class="media-body">
         <h4 class="media-heading"><strong>{{marker.venue}}</strong></h4>
-        <p>{{marker.venueInfo.tips.groups[0].items[0].text}}</p>
+        <p>{{marker.tip}}</p>
       </div>
     </div>
   </div>

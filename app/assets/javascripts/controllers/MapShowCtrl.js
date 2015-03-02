@@ -60,6 +60,8 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routePara
       }
 
       marker.photoArray = photo_array;
+      marker.tip = venueInfo.tips.groups[0].items[0].text
+      marker.category = venueInfo.categories[0].name
       marker.venueInfo = venueInfo;
       return venueInfo;
     });
