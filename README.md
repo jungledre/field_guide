@@ -16,8 +16,13 @@ Field Guide allows users to browse or create custom guides to their city.
 * Angular UI Bootstrap (typeahead search)
 
 ### Wishlist
-* Foursquare login
+* Edit maps
+* Custom map names include name of author
+* Custom tips
 * Search in any city
+* Draw paths using the Leaflet Angular Directive 
+* Add users
+* Foursquare login
 
 ### Contributors
 Adrienne Kerr
