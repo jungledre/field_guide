@@ -9,7 +9,7 @@ app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService'
     defaults: {
       tileLayer: "https://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
       scrollWheelZoom: false,
-      maxZoom: 15,
+      maxZoom: 18,
       path: {
         weight: 10,
         color: '#800000',

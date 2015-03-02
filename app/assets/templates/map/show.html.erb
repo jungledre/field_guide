@@ -11,20 +11,20 @@
   <div class="media col-md-6 col-sm-6 col-xs-12" ng-repeat="marker in markers">
       <div class="media-top">
 
-        <div class="map-list-photos container-fluid col-md-12" data-ng-init="getVenueInfo(marker.venue_id, marker)">
+        <div class="map-list-photos container-fluid col-md-12" ng-init="getVenueInfo(marker.venue_id, marker)">
           <div ng-repeat="photo in marker.photoArray">
-            <img class="media-object col-md-4" src="{{photo}}" width="100%">
+            <img class="media-object col-md-4" ng-src="{{photo}}" width="100%">
           </div>
         </div>
 
         <div class="category-icon-overlay">
-          <span><img src="{{marker.icon.iconUrl}}"></span>
+          <span><img ng-src="{{marker.icon.iconUrl}}"></span>
         </div>
 
       </div>
       <div class="media-body">
         <h4 class="media-heading"><strong>{{marker.venue}}</strong></h4>
-        <p>"Guba simpy bebo, zecco plazes moola gpokr."</p>
+        <p>{{marker.venueInfo.tips.groups[0].items[0].text}}</p>
       </div>
     </div>
   </div>

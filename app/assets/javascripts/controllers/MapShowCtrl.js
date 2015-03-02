@@ -8,18 +8,11 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routePara
       $scope.currentUser = UserService.currentUser;
   })
 
-  $http.get('/show_map/'+mapId).success(function(data){
-      $scope.markers = data;
-  }).error(function(err){
-      $location.path('/');
-      alert('that map could not be found.');
-  })
-
   angular.extend($scope, {
     defaults: {
       tileLayer: "https://{s}.tiles.mapbox.com/v3/jungledre.j2b12cd5/{z}/{x}/{y}.png",
       scrollWheelZoom: false,
-      maxZoom: 15,
+      maxZoom: 18,
       path: {
         weight: 10,
         color: '#800000',
@@ -67,6 +60,7 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routePara
       }
 
       marker.photoArray = photo_array;
+      marker.venueInfo = venueInfo;
       return venueInfo;
     });
   };
