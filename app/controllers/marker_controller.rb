@@ -1,6 +1,7 @@
 class MarkerController < ApplicationController
 
   def create
+    puts "marker:create"
     @map = Map.new
     if @map.save
       params[:marker].each do |p|
@@ -19,6 +20,7 @@ class MarkerController < ApplicationController
   end
 
   def get_markers
+    puts "marker:get_markers"
     markers = Marker.all.as_json
     markers = markers.map {|x| x.merge({
       :icon => {  iconUrl:      x['icon'],
@@ -36,8 +38,4 @@ class MarkerController < ApplicationController
     })}
     render json: markers
   end
-
-  # def map_params
-  #   params.require(:map).permit(:name)
-  # end
 end

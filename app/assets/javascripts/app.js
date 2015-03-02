@@ -14,22 +14,25 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
         templateUrl:'index.html',
         controller:'SiteCtrl'
     })
+    .when('/map/id/:id',{
+        templateUrl: 'map/show.html',
+        controller: 'MapShowCtrl'
+    })
     .when('/map/new',{
-        templateUrl:'new.html',
+        templateUrl:'map/new.html',
         controller:'MapNewCtrl'
     })
     .when('/map/browse',{
-        templateUrl:'browse.html',
+        templateUrl:'map/index.html',
         controller:'MapIndexCtrl'
-    })
-    .when('/map/:id',{
-        templateUrl:'map.html',
-        controller:'MapShowCtrl'
     })
     .when('/about',{
         templateUrl:'about.html',
         controller:'SiteCtrl'
     })
+    .otherwise({
+        redirectTo: "/"
+    });
 }]);
 
 app.run(['UserService', function(UserService){

@@ -1,4 +1,5 @@
-app.controller('MapEditCtrl',['$scope','$http','$modalInstance','map','AlertService', function($scope,$http,$modalInstance,post,AlertService){
+app.controller('MapEditCtrl',['$scope','$http','$modalInstance','map','AlertService',
+    function($scope,$http,$modalInstance,post,AlertService){
         $scope.title = post.title
         $scope.body = post.body
 

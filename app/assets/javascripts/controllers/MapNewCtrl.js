@@ -1,9 +1,12 @@
-app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
+app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertService','UserService',
+  function($scope,$http,$modal,$location,AlertService,UserService){
 
-  $scope.UserService = UserService
-  $scope.$watchCollection('UserService',function(){
-      $scope.currentUser = UserService.currentUser;
-  })
+  // $scope.UserService = UserService
+  // $scope.$watchCollection('UserService',function(){
+  //     $scope.currentUser = UserService.currentUser;
+  // })
+
+  $scope.markers = []
 
   angular.extend($scope, {
     defaults: {
@@ -74,18 +77,6 @@ app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertServic
     $scope.selected = ""
   };
 
-  $scope.getMarkers = function() {
-    return $http.get('/marker')
-    .success(function(response){
-      for (var i = response.length - 1; i >= 0; i--) {
-        response[i].lat = parseFloat(response[i].lat)
-        response[i].lng = parseFloat(response[i].lng)
-      };
-      $scope.markers = response
-      return $scope.markers
-    });
-  };
-
   $scope.saveMap = function(){
     console.log($scope.markers)
     var saveMarkers = $scope.markers.map(function(el) {
@@ -100,12 +91,11 @@ app.controller('MapNewCtrl', ['$scope','$http','$modal','$location','AlertServic
     });
     $scope.alert=false;
     $http.post('/marker',{marker: saveMarkers}).success(function(data){
-        AlertService.add('success', 'The field guide has been saved.')
-        console.log(saveMarkers)
+        AlertService.add('success', 'Your field guide has been saved.')
+        alert("The field guide has been saved.")
     }).error(function(err){
         console.log(err);
     })
   };
 
-$scope.getMarkers()
 }]);

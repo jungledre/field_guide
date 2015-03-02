@@ -1,9 +1,9 @@
 app.controller('SiteCtrl', ['$scope','$http','$modal','$location','AlertService','UserService', function($scope,$http,$modal,$location,AlertService,UserService){
 
-  $scope.UserService = UserService
-  $scope.$watchCollection('UserService',function(){
-      $scope.currentUser = UserService.currentUser;
-  })
+  // $scope.UserService = UserService
+  // $scope.$watchCollection('UserService',function(){
+  //     $scope.currentUser = UserService.currentUser;
+  // })
 
   angular.extend($scope, {
     defaults: {

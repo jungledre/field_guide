@@ -1,11 +1,12 @@
-app.controller('MainNavCtrl',['$scope','$location','$modal','UserService', function($scope,$location,$modal,UserService){
+app.controller('MainNavCtrl',['$scope','$location','$modal','UserService',
+  function($scope,$location,$modal,UserService){
 
   $scope.navCollapsed = true
-  $scope.UserService = UserService
+  // $scope.UserService = UserService
 
-  $scope.$watchCollection('UserService',function(){
-    $scope.currentUser = UserService.currentUser;
-  })
+  // $scope.$watchCollection('UserService',function(){
+  //   $scope.currentUser = UserService.currentUser;
+  // })
 
   $scope.isActive = function(url){
     return url == $location.path();

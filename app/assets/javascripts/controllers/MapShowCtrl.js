@@ -1,11 +1,18 @@
 app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routeParams','AlertService','UserService',
   function($scope,$http,$modal,$location,$routeParams,AlertService,UserService){
 
-  var mapId = $routeParams.id
+  var mapId = $routeParams.id;
 
   $scope.UserService = UserService
   $scope.$watchCollection('UserService',function(){
       $scope.currentUser = UserService.currentUser;
+  })
+
+  $http.get('/show_map/'+mapId).success(function(data){
+      $scope.markers = data;
+  }).error(function(err){
+      $location.path('/');
+      alert('that map could not be found.');
   })
 
   angular.extend($scope, {
@@ -30,10 +37,8 @@ app.controller('MapShowCtrl', ['$scope','$http','$modal','$location','$routePara
   }
 
   $scope.getMarkers = function() {
-    console.log("hi")
     $http.get('/show_map/' + mapId)
     .success(function(response){
-      console.log("inside")
       for (var i = response.length - 1; i >= 0; i--) {
         response[i].lat = parseFloat(response[i].lat)
         response[i].lng = parseFloat(response[i].lng)

@@ -1,4 +1,5 @@
-app.controller('AuthModalCtrl', ['$scope','$modalInstance','UserService', function($scope,$modalInstance,UserService){
+app.controller('AuthModalCtrl', ['$scope','$modalInstance','UserService',
+  function($scope,$modalInstance,UserService){
   $scope.loginData = {email:'',password:''}
   $scope.signupData = {}
 
