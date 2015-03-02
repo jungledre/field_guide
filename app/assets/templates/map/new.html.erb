@@ -14,13 +14,11 @@
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit">
               <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-              <span ng-hide="loadingLocations">  Go!</span>
+              <span ng-hide="loadingLocations">Go!</span>
             </button>
           </span>
         </div>
       </form>
-
-      <br><br>
 
       <div>
         <ul class="map-list" ng-repeat="marker in markers">
