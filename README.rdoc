@@ -1,3 +1,1 @@
 == README
-
-<a href="/field-guide.herokuapp.com">field-guide.herokuapp.com</a>
